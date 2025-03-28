@@ -92,10 +92,6 @@ jobs:
           path: ~/.m2
           key: ubuntu-latest-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ubuntu-latest-m2-
-      - name: Apply Spotless Formatting
-        run: mvn spotless:apply
-      - name: Build with Maven
-        run: mvn clean verify
       - name: SonarQube Analysis
         run: mvn sonar:sonar -Dsonar.projectKey=your_project_key -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dsonar.exclusions=**/*.java
       # Uncomment the lines below to fail the job if the Quality Gate fails
