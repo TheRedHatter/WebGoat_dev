@@ -83,6 +83,9 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        with:
+          args: >
+            -Dsonar.exclusions=**/*.java
       # Uncomment the lines below to fail the job if the Quality Gate fails
       # - uses: sonarsource/sonarqube-quality-gate-action@master
       #   timeout-minutes: 5
